@@ -1,278 +1,280 @@
 <!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ladalat Hotel - Thiết Kế Hiện Đại</title>
-    <!-- Tải Tailwind CSS cho thiết kế hiện đại và responsive -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* Định nghĩa lại màu sắc theo tông vàng đồng và xám */
-        :root {
-            --primary-color: #B58E4E; /* Vàng đồng */
-            --secondary-color: #607D8B; /* Xanh xám */
-            --dark-text: #333333;
-            --light-bg: #F9F9F9;
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ladalat Hotel</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f9f506",
+                        "background-light": "#f8f8f5",
+                        "background-dark": "#23220f",
+                        "text-dark": "#1c1c0d",
+                        "text-light": "#f8f8f5",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "1.5rem", "xl": "2rem", "2xl": "3rem", "full": "9999px"},
+                },
+            },
         }
-
-        /* Thiết lập font chữ hiện đại */
-        body {
-            font-family: 'Inter', sans-serif;
-            color: var(--dark-text);
-            background-color: #fff;
-        }
-        
-        /* Custom styles */
-        .primary-btn {
-            @apply inline-block px-8 py-3 font-semibold uppercase tracking-wider rounded-lg transition duration-300 shadow-md;
-            background-color: var(--primary-color);
-            color: #FFFFFF;
-        }
-        .primary-btn:hover {
-            background-color: #A07F40;
-            box-shadow: 0 4px 15px rgba(181, 142, 78, 0.4);
-        }
-        
-        /* Hero Section */
-        .hero-section {
-            background-image: url('https://placehold.co/1920x800/607D8B/FFFFFF?text=Modern+Hotel+Lobby');
-            background-size: cover;
-            background-position: center;
-        }
-
-        /* Room Cards: Sử dụng Grid cho bố cục phòng */
-        .room-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .room-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Footer */
-        .footer-bg {
-            background-color: var(--secondary-color);
-        }
-        
-        /* Mobile Menu Toggler */
-        .menu-icon {
-            cursor: pointer;
-        }
-        
-    </style>
-</head>
-<body>
-
-    <!-- Header & Navigation -->
-    <header class="shadow-lg sticky top-0 z-50 bg-white">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center py-4">
-                <!-- Logo -->
-                <a href="#" class="flex items-center space-x-2">
-                    <!-- Sử dụng placeholder cho logo - Thay thế bằng logo thực tế sau -->
-                    <svg class="w-8 h-8 text-primary-color" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 2L4 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-8-3zm-1 14l-4-4 1.41-1.41L11 13.17l3.59-3.59L16 11l-5 5z"/>
-                    </svg>
-                    <span class="text-2xl font-bold tracking-tight text-dark-text">LADALAT HOTEL</span>
-                </a>
-
-                <!-- Desktop Navigation -->
-                <nav class="hidden lg:flex space-x-8 items-center">
-                    <a href="#" class="text-dark-text hover:text-primary-color transition duration-150 font-medium">Trang Chủ</a>
-                    <a href="#about" class="text-dark-text hover:text-primary-color transition duration-150 font-medium">Giới Thiệu</a>
-                    <a href="#rooms" class="text-dark-text hover:text-primary-color transition duration-150 font-medium">Phòng & Dịch Vụ</a>
-                    <a href="#contact" class="text-dark-text hover:text-primary-color transition duration-150 font-medium">Liên Hệ</a>
-                    <!-- Nút đặt phòng nổi bật -->
-                    <a href="#" class="primary-btn">Đặt Ngay</a>
-                </nav>
-
-                <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-color menu-icon" aria-label="Toggle Menu">
-                    <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-                    <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-                </button>
-            </div>
-        </div>
-        
-        <!-- Mobile Menu (Hidden by default) -->
-        <div id="mobile-menu" class="hidden lg:hidden bg-white shadow-xl absolute w-full transition duration-300">
-            <a href="#" class="block px-4 py-3 text-dark-text hover:bg-light-bg font-medium border-t">Trang Chủ</a>
-            <a href="#about" class="block px-4 py-3 text-dark-text hover:bg-light-bg font-medium border-t">Giới Thiệu</a>
-            <a href="#rooms" class="block px-4 py-3 text-dark-text hover:bg-light-bg font-medium border-t">Phòng & Dịch Vụ</a>
-            <a href="#contact" class="block px-4 py-3 text-dark-text hover:bg-light-bg font-medium border-t">Liên Hệ</a>
-            <a href="#" class="block px-4 py-3 text-center bg-primary-color text-white font-bold transition duration-150">ĐẶT PHÒNG NGAY</a>
-        </div>
-    </header>
-
-    <main>
-        
-        <!-- 1. Hero Section (Banner Lớn) -->
-        <section class="hero-section h-[70vh] flex items-center justify-center text-center">
-            <div class="bg-black bg-opacity-40 p-10 rounded-xl max-w-2xl mx-auto">
-                <h1 class="text-5xl md:text-6xl font-extrabold text-white mb-4 tracking-tighter">
-                    Trải Nghiệm Đẳng Cấp Tại Đà Lạt
-                </h1>
-                <p class="text-xl text-gray-100 mb-8">
-                    Nơi nghỉ dưỡng hoàn hảo, kết hợp giữa sự sang trọng và vẻ đẹp thiên nhiên.
-                </p>
-                <a href="#" class="primary-btn bg-white text-primary-color hover:bg-gray-100">
-                    Khám Phá Phòng
-                </a>
-            </div>
-        </section>
-
-        <!-- 2. Room Listings (Danh sách Phòng) -->
-        <section id="rooms" class="py-16 md:py-24 bg-light-bg">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-4xl font-bold text-center mb-12 text-dark-text">Phòng & Dịch Vụ Nổi Bật</h2>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    
-                    <!-- Room Card 1: Phòng Deluxe -->
-                    <div class="room-card bg-white rounded-xl overflow-hidden shadow-lg">
-                        <img class="w-full h-64 object-cover" src="https://placehold.co/800x600/B58E4E/FFFFFF?text=Phòng+Deluxe" alt="Phòng Deluxe">
-                        <div class="p-6 text-center">
-                            <h3 class="text-2xl font-bold mb-2 text-primary-color">Phòng Deluxe Sang Trọng</h3>
-                            <p class="text-gray-600 mb-4">View đẹp, ban công riêng, nội thất cao cấp.</p>
-                            <p class="text-3xl font-extrabold text-dark-text mb-4">2.500.000<span class="text-lg">đ/đêm</span></p>
-                            <a href="#" class="primary-btn">Đặt Ngay</a>
-                        </div>
-                    </div>
-
-                    <!-- Room Card 2: Phòng View Đẹp -->
-                    <div class="room-card bg-white rounded-xl overflow-hidden shadow-lg">
-                        <img class="w-full h-64 object-cover" src="https://placehold.co/800x600/607D8B/FFFFFF?text=Phòng+View+Đẹp" alt="Phòng View Đẹp">
-                        <div class="p-6 text-center">
-                            <h3 class="text-2xl font-bold mb-2 text-primary-color">Phòng View Tuyệt Đỉnh</h3>
-                            <p class="text-gray-600 mb-4">Tận hưởng toàn cảnh Đà Lạt thơ mộng.</p>
-                            <p class="text-3xl font-extrabold text-dark-text mb-4">3.000.000<span class="text-lg">đ/đêm</span></p>
-                            <a href="#" class="primary-btn">Đặt Ngay</a>
-                        </div>
-                    </div>
-                    
-                    <!-- Room Card 3: Phòng Gia Đình -->
-                    <div class="room-card bg-white rounded-xl overflow-hidden shadow-lg">
-                        <img class="w-full h-64 object-cover" src="https://placehold.co/800x600/B58E4E/FFFFFF?text=Phòng+Gia+Đình" alt="Phòng Gia Đình">
-                        <div class="p-6 text-center">
-                            <h3 class="text-2xl font-bold mb-2 text-primary-color">Phòng Gia Đình Tiện Nghi</h3>
-                            <p class="text-gray-600 mb-4">Không gian rộng rãi, lý tưởng cho cả gia đình.</p>
-                            <p class="text-3xl font-extrabold text-dark-text mb-4">3.500.000<span class="text-lg">đ/đêm</span></p>
-                            <a href="#" class="primary-btn">Đặt Ngay</a>
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-        </section>
-        
-        <!-- 3. About Section (Giới Thiệu) -->
-        <section id="about" class="py-16 md:py-24">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="lg:flex lg:items-center lg:space-x-12">
-                    <div class="lg:w-1/2 mb-8 lg:mb-0">
-                        <img class="rounded-xl shadow-2xl w-full h-auto" src="https://placehold.co/800x500/607D8B/FFFFFF?text=Khu+Vực+Khách+Sạn" alt="Khu vực khách sạn">
-                    </div>
-                    <div class="lg:w-1/2">
-                        <span class="text-primary-color uppercase font-semibold tracking-wider mb-2 block">Về chúng tôi</span>
-                        <h2 class="text-4xl font-bold mb-6 text-dark-text">Hơn cả một kỳ nghỉ, đó là trải nghiệm</h2>
-                        <p class="text-gray-600 mb-4">
-                            Ladalat Hotel là điểm đến lý tưởng cho những ai tìm kiếm sự yên bình và sang trọng giữa lòng thành phố Đà Lạt. Với kiến trúc độc đáo, dịch vụ tận tâm và vị trí đắc địa, chúng tôi cam kết mang đến cho quý khách những khoảnh khắc đáng nhớ nhất.
-                        </p>
-                        <ul class="list-disc list-inside text-gray-600 space-y-2 mb-6 ml-4">
-                            <li>Phòng nghỉ thiết kế hiện đại, tinh tế.</li>
-                            <li>Hồ bơi nước nóng trong nhà cao cấp.</li>
-                            <li>Nhà hàng phục vụ ẩm thực Á - Âu đa dạng.</li>
-                            <li>Dịch vụ spa và chăm sóc sức khỏe chuyên nghiệp.</li>
-                        </ul>
-                        <a href="#" class="primary-btn">Xem Chi Tiết</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- 4. Footer -->
-    <footer id="contact" class="footer-bg text-white py-12">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
-                
-                <!-- Cột 1: Thông tin Liên hệ -->
-                <div class="space-y-3">
-                    <h4 class="text-xl font-bold text-primary-color mb-4">Liên Hệ</h4>
-                    <p class="text-gray-200">☎ 0917759370</p>
-                    <p class="text-gray-200">info@ladalathotel.com.vn</p>
-                    <p class="text-gray-200">106A Mai Anh Đào, P.8, Tp. Đà Lạt, Lâm Đồng</p>
-                </div>
-
-                <!-- Cột 2: Điều hướng nhanh -->
-                <div class="space-y-3">
-                    <h4 class="text-xl font-bold text-primary-color mb-4">Điều Hướng</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="hover:text-primary-color transition duration-150">Trang Chủ</a></li>
-                        <li><a href="#rooms" class="hover:text-primary-color transition duration-150">Đặt Phòng</a></li>
-                        <li><a href="#" class="hover:text-primary-color transition duration-150">Chính Sách</a></li>
-                        <li><a href="#" class="hover:text-primary-color transition duration-150">Tuyển Dụng</a></li>
-                    </ul>
-                </div>
-
-                <!-- Cột 3: Dịch vụ -->
-                <div class="space-y-3">
-                    <h4 class="text-xl font-bold text-primary-color mb-4">Dịch Vụ</h4>
-                    <ul class="space-y-2">
-                        <li>Hội Nghị & Tiệc Cưới</li>
-                        <li>Nhà Hàng & Bar</li>
-                        <li>Spa & Gym</li>
-                        <li>Tham Quan Đà Lạt</li>
-                    </ul>
-                </div>
-                
-                <!-- Cột 4: Logo BCT & Mạng xã hội -->
-                <div class="space-y-4">
-                    <h4 class="text-xl font-bold text-primary-color mb-4">Theo dõi chúng tôi</h4>
-                    <!-- Placeholder for Logo BCT -->
-                    <img class="max-w-[150px] w-full mx-auto md:mx-0" src="https://placehold.co/150x50/333333/FFFFFF?text=Logo+BCT" alt="Bộ Công Thương">
-                </div>
-
-            </div>
-            
-            <!-- Copyright -->
-            <div class="border-t border-gray-600 mt-8 pt-8 text-center">
-                <p class="text-sm text-gray-400">&copy; 2024 Ladalat Hotel. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- JavaScript cho Mobile Menu -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const btn = document.getElementById('mobile-menu-btn');
-            const menu = document.getElementById('mobile-menu');
-            const iconOpen = document.getElementById('menu-icon-open');
-            const iconClose = document.getElementById('menu-icon-close');
-
-            btn.addEventListener('click', () => {
-                const isHidden = menu.classList.toggle('hidden');
-                
-                // Thay đổi icon dựa trên trạng thái menu
-                if (isHidden) {
-                    iconOpen.classList.remove('hidden');
-                    iconClose.classList.add('hidden');
-                } else {
-                    iconOpen.classList.add('hidden');
-                    iconClose.classList.remove('hidden');
-                }
-            });
-
-            // Đóng menu khi click vào link (trên mobile)
-            menu.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    menu.classList.add('hidden');
-                    iconOpen.classList.remove('hidden');
-                    iconClose.classList.add('hidden');
-                });
-            });
-        });
     </script>
-</body>
-</html>
+<style>
+        /* Custom scrollbar hiding */
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-dark dark:text-text-light antialiased transition-colors duration-200">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden pb-20">
+<!-- Header / Navigation (Overlay) -->
+<header class="absolute top-0 left-0 z-20 w-full p-4">
+<div class="flex items-center justify-between">
+<!-- Hamburger Menu -->
+<button class="flex size-10 items-center justify-center rounded-full bg-white/20 backdrop-blur-md transition hover:bg-white/30 text-white">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<!-- Logo -->
+<h1 class="text-xl font-bold tracking-widest text-white uppercase drop-shadow-md">Ladalat</h1>
+<!-- Profile Icon -->
+<button class="flex size-10 items-center justify-center rounded-full bg-white/20 backdrop-blur-md transition hover:bg-white/30 text-white">
+<span class="material-symbols-outlined">person</span>
+</button>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="relative h-[65vh] min-h-[500px] w-full overflow-hidden rounded-b-2xl shadow-lg">
+<!-- Background Image -->
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Luxury hotel exterior with pool at sunset" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuArCRziPNY6g4JMKrvmtX8ldi2zKQSqK65oOKMnVbaO2DmXM5M9K5ShnMbiQ9ku1yMzwXypz7UqtGzxWBs5EXuQEIXvUrY6QDZDF7ICkhvcy7RNkx_Z88WbW9l5v0_vRh7s4T6jG98hlbJ9LqxOUH10XZIVeeFEaYLlbM6W0RWm8zbeLxjXh_K4CeCBmJH3boTL0MrxbmJ1P-1U0FWvsZX5cJo-_lPYyJQxmQGNTtlxli8iv7qxDrnDIN2KWzqfCTxiQH335XwETIo");'>
+</div>
+<!-- Gradient Overlay -->
+<div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/80"></div>
+<!-- Content -->
+<div class="absolute inset-0 flex flex-col justify-end p-6 pb-20">
+<div class="mb-6 space-y-2">
+<p class="text-sm font-medium uppercase tracking-widest text-primary">Five Star Luxury</p>
+<h2 class="text-4xl font-bold leading-tight text-white drop-shadow-lg">
+                        Welcome to <br/> <span class="text-primary">Ladalat Hotel</span>
+</h2>
+<p class="max-w-xs text-sm text-white/90">Experience the heart of the city with unmatchable comfort and elegance.</p>
+</div>
+<!-- Search Widget -->
+<div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-2 flex items-center shadow-lg">
+<div class="flex-1 flex flex-col pl-3 border-r border-white/20">
+<label class="text-[10px] uppercase tracking-wider text-white/70 font-bold">Dates</label>
+<span class="text-sm font-medium text-white">Oct 12 - Oct 15</span>
+</div>
+<div class="flex-1 flex flex-col pl-3">
+<label class="text-[10px] uppercase tracking-wider text-white/70 font-bold">Guests</label>
+<span class="text-sm font-medium text-white">2 Adults, 1 Room</span>
+</div>
+<button class="bg-primary text-background-dark hover:bg-yellow-300 size-12 rounded-lg flex items-center justify-center transition shadow-[0_0_15px_rgba(249,245,6,0.4)]">
+<span class="material-symbols-outlined">search</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Rooms Section -->
+<section class="mt-8 flex flex-col gap-4">
+<div class="px-6 flex items-end justify-between">
+<h2 class="text-2xl font-bold tracking-tight text-text-dark dark:text-text-light">Our Rooms</h2>
+<a class="text-sm font-medium text-primary hover:underline" href="#">See All</a>
+</div>
+<!-- Carousel -->
+<div class="flex snap-x snap-mandatory overflow-x-auto px-6 pb-8 pt-2 scrollbar-hide gap-4">
+<!-- Card 1 -->
+<div class="snap-center shrink-0 w-72 flex flex-col gap-3 rounded-2xl bg-white dark:bg-zinc-800 p-3 shadow-sm transition hover:shadow-md">
+<div class="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-gray-200">
+<div class="h-full w-full bg-cover bg-center transition duration-500 hover:scale-105" data-alt="Modern deluxe hotel bedroom with king bed" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAHvw6NHJim4-2yECOn21xl462tjiVvyzSAZzw41at5V0Y32cRm1nrslug-BzVHb1VkmvXDMMRgpq8jRG2ya29MtE5lNL6aMK4i0esJtP_9aCPmK5cCX7TUj081j9ui64V_E2r2vfEgEU0tj5phegOCFujgzpBgG_vOQOXNecF91_aTNDO1N-hzRUK07g0fGeWJzcGjNGLYyXvftZIyrClOD2_aUbL6HK4hFIz-TIngI4myPW91BJAoryQk_6wMVMub6JcSJQK-7jc");'>
+</div>
+<div class="absolute top-2 right-2 rounded-full bg-black/50 px-2 py-1 backdrop-blur-sm">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[14px]">star</span>
+<span class="text-xs font-bold text-white">4.8</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-1 px-1">
+<h3 class="text-lg font-bold text-text-dark dark:text-white">Deluxe Room</h3>
+<p class="text-xs text-gray-500 dark:text-gray-400">King Size Bed • 35m²</p>
+</div>
+<div class="mt-1 flex items-center justify-between px-1">
+<div>
+<span class="text-lg font-bold text-primary">$85</span>
+<span class="text-xs text-gray-400">/night</span>
+</div>
+<button class="rounded-full bg-primary px-4 py-2 text-sm font-bold text-background-dark shadow-sm transition hover:bg-yellow-300">
+                            Book
+                        </button>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="snap-center shrink-0 w-72 flex flex-col gap-3 rounded-2xl bg-white dark:bg-zinc-800 p-3 shadow-sm transition hover:shadow-md">
+<div class="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-gray-200">
+<div class="h-full w-full bg-cover bg-center transition duration-500 hover:scale-105" data-alt="Luxury hotel room with city skyline view" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCBXQdyLzCSet0_14i82RCNv7OePwMzLjqQA-Z1QC-wJq7jwYr7clku84qMymRMvhJw0urVaMWys_1Q6W8PNxNiOv8JCwDsz5X6OeaKotJGi2rDIKlHethV9J964XZJGTAEgMb2r46pklWqTyFWahc62rEPKRLxzN2ynKkknHfUzTI3xeX5Bgc1Yi5rklvz6KPrx170UtQJxgpq66PNoiTVFIJ4Dn63vNQ4AxwL3FicZBBNgCeaAkSKW1y2cx93tth-egalPH_V88I");'>
+</div>
+<div class="absolute top-2 right-2 rounded-full bg-black/50 px-2 py-1 backdrop-blur-sm">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[14px]">star</span>
+<span class="text-xs font-bold text-white">4.9</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-1 px-1">
+<h3 class="text-lg font-bold text-text-dark dark:text-white">View Room</h3>
+<p class="text-xs text-gray-500 dark:text-gray-400">City View • Balcony</p>
+</div>
+<div class="mt-1 flex items-center justify-between px-1">
+<div>
+<span class="text-lg font-bold text-primary">$110</span>
+<span class="text-xs text-gray-400">/night</span>
+</div>
+<button class="rounded-full bg-primary px-4 py-2 text-sm font-bold text-background-dark shadow-sm transition hover:bg-yellow-300">
+                            Book
+                        </button>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="snap-center shrink-0 w-72 flex flex-col gap-3 rounded-2xl bg-white dark:bg-zinc-800 p-3 shadow-sm transition hover:shadow-md">
+<div class="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-gray-200">
+<div class="h-full w-full bg-cover bg-center transition duration-500 hover:scale-105" data-alt="Spacious family suite with living area" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDWJP0B15HbbAbUeufpb_y9I3mHdFiv1Y_sMCpIpROGE3oynWEhgLQm4XTcmDNR5EwkFr_LmA-wWiTuE2zE-EW5CoeD5jbWyvft4xuQn4mSxSG3OyAcMM75ofRo8l9fG76phNVyQWE-u9QdPuzZixdeblnAEgbgtBi7FHKnfoVWOkKSt8xs_mEphDRcqW6MsMZNrNFCfaofw548NyD-OUAyW7_EAoWLJo4ZYOoG9gTh5DvaKK4wHWwWqMS0Dkd7pf__QS_qxgAcRkA");'>
+</div>
+<div class="absolute top-2 right-2 rounded-full bg-black/50 px-2 py-1 backdrop-blur-sm">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[14px]">star</span>
+<span class="text-xs font-bold text-white">5.0</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-1 px-1">
+<h3 class="text-lg font-bold text-text-dark dark:text-white">Family Suite</h3>
+<p class="text-xs text-gray-500 dark:text-gray-400">2 Bedrooms • 65m²</p>
+</div>
+<div class="mt-1 flex items-center justify-between px-1">
+<div>
+<span class="text-lg font-bold text-primary">$180</span>
+<span class="text-xs text-gray-400">/night</span>
+</div>
+<button class="rounded-full bg-primary px-4 py-2 text-sm font-bold text-background-dark shadow-sm transition hover:bg-yellow-300">
+                            Book
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- About / Amenities Section -->
+<section class="mt-4 px-6 mb-8">
+<div class="mb-5">
+<h2 class="text-2xl font-bold tracking-tight text-text-dark dark:text-text-light">Hotel Amenities</h2>
+<p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Everything you need for a perfect stay.</p>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<!-- Amenity 1 -->
+<div class="group flex flex-col items-center justify-center gap-2 rounded-xl bg-white dark:bg-zinc-800 p-6 shadow-sm transition hover:shadow-md border border-transparent hover:border-primary/20">
+<div class="flex size-12 items-center justify-center rounded-full bg-primary/20 text-text-dark dark:text-white group-hover:bg-primary transition-colors">
+<span class="material-symbols-outlined">wifi</span>
+</div>
+<span class="text-sm font-semibold">Free Wi-Fi</span>
+</div>
+<!-- Amenity 2 -->
+<div class="group flex flex-col items-center justify-center gap-2 rounded-xl bg-white dark:bg-zinc-800 p-6 shadow-sm transition hover:shadow-md border border-transparent hover:border-primary/20">
+<div class="flex size-12 items-center justify-center rounded-full bg-primary/20 text-text-dark dark:text-white group-hover:bg-primary transition-colors">
+<span class="material-symbols-outlined">pool</span>
+</div>
+<span class="text-sm font-semibold">Infinity Pool</span>
+</div>
+<!-- Amenity 3 -->
+<div class="group flex flex-col items-center justify-center gap-2 rounded-xl bg-white dark:bg-zinc-800 p-6 shadow-sm transition hover:shadow-md border border-transparent hover:border-primary/20">
+<div class="flex size-12 items-center justify-center rounded-full bg-primary/20 text-text-dark dark:text-white group-hover:bg-primary transition-colors">
+<span class="material-symbols-outlined">restaurant</span>
+</div>
+<span class="text-sm font-semibold">Dining</span>
+</div>
+<!-- Amenity 4 -->
+<div class="group flex flex-col items-center justify-center gap-2 rounded-xl bg-white dark:bg-zinc-800 p-6 shadow-sm transition hover:shadow-md border border-transparent hover:border-primary/20">
+<div class="flex size-12 items-center justify-center rounded-full bg-primary/20 text-text-dark dark:text-white group-hover:bg-primary transition-colors">
+<span class="material-symbols-outlined">fitness_center</span>
+</div>
+<span class="text-sm font-semibold">Gym &amp; Spa</span>
+</div>
+</div>
+</section>
+<!-- Contact & Map Preview -->
+<section class="mt-4 px-6 pb-24">
+<div class="overflow-hidden rounded-2xl bg-background-dark text-white shadow-lg">
+<div class="h-40 w-full bg-cover bg-center opacity-60" data-alt="Map view of Ladalat Hotel location" data-location="Dalat, Vietnam" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD1s5zVFGWU-R3nzW9-OH84GmEblQR1Zm-dcFL3s-lVwOY_XUjxGYfZlucY9kA-FL1nU3mssuZNMql5yzsSzIjTNq-6nqoYfWFzUmara7fc5Jz5i9xH-aRtRwZ4RzJn1wBh7GDgrNCbn3sO5IkQx4hGIoTvA9ssu8IqipfS6fLigMrIPgXKegavGh6gG39a_JjLIsmV6v6ja_8dS3_PSy4vMwPgCJKq3wXSkH9YXJJkRkTcDhsva-n_g8KPBJ-q-s-7UKhnXOeOPEU");'>
+</div>
+<div class="relative -mt-12 p-6 pt-0">
+<div class="flex size-12 items-center justify-center rounded-full bg-primary text-background-dark shadow-lg absolute right-6 -top-6">
+<span class="material-symbols-outlined">near_me</span>
+</div>
+<div class="mt-4">
+<h3 class="text-lg font-bold">Ladalat Hotel</h3>
+<div class="mt-2 flex items-start gap-3 opacity-80">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5">location_on</span>
+<p class="text-sm font-light">106A Mai Anh Dao, Ward 8, Da Lat City, Lam Dong, Vietnam</p>
+</div>
+<div class="mt-3 flex items-center gap-3 opacity-80">
+<span class="material-symbols-outlined text-primary text-[20px]">call</span>
+<p class="text-sm font-light">+84 123 456 789</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Floating Bottom Navigation -->
+<nav class="fixed bottom-6 left-1/2 z-50 w-[90%] max-w-sm -translate-x-1/2 rounded-full bg-white/90 dark:bg-zinc-900/90 p-2 shadow-2xl backdrop-blur-lg border border-white/20">
+<ul class="flex items-center justify-between px-2">
+<li>
+<a class="flex flex-col items-center justify-center rounded-full p-2 text-primary" href="#">
+<span class="material-symbols-outlined fill-current">home</span>
+</a>
+</li>
+<li>
+<a class="flex flex-col items-center justify-center rounded-full p-2 text-gray-400 hover:text-primary transition-colors dark:text-gray-500" href="#">
+<span class="material-symbols-outlined">favorite</span>
+</a>
+</li>
+<li>
+<a class="flex flex-col items-center justify-center rounded-full p-2 text-gray-400 hover:text-primary transition-colors dark:text-gray-500" href="#">
+<span class="material-symbols-outlined">calendar_month</span>
+</a>
+</li>
+<li>
+<a class="flex flex-col items-center justify-center rounded-full p-2 text-gray-400 hover:text-primary transition-colors dark:text-gray-500" href="#">
+<span class="material-symbols-outlined">person</span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</body></html>
