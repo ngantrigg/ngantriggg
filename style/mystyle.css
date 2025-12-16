@@ -1,0 +1,204 @@
+body{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.1em;
+    color: #555355;
+}
+a{
+    text-decoration: none;
+    color: rgb(240, 90, 90);
+}
+p{
+    margin-top: 0px;
+    margin-bottom: 10px;
+    text-align: initial;
+}
+*{
+    box-sizing: border-box;
+}
+.center{
+    text-align: center;
+}
+.nar{
+    background:  #FFDFC7;
+}
+.nar ul{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0px;
+    padding: 0px;
+}
+.nar a{
+    padding: 7px 30px;
+    display: inline-block;
+    color: rgb(53, 186, 190);
+}
+.nar a:hover{
+    background-color: rgb(245, 226, 185);
+    color: rgb(78, 207, 106);
+}
+.auto{
+    width: 100%;
+    height: auto;
+}
+.bar{
+    max-width: 300px;
+}
+.row{
+    display: flex;
+    flex-direction: row;
+}
+.col-25{
+    flex:10%;
+}
+.col-75{
+    flex: 75%;
+}
+.col-33{
+    flex:33.3333%
+}
+
+.tomtatsp header{
+    font-weight: bold;
+    background-color: rgb(255, 255, 255);
+    color: rgb(204, 32, 147);
+    margin-bottom: 5px;
+    padding: 5px;
+}
+.col-50{
+    flex: 50%;
+}
+.tomtat{
+    width: 200%;
+    height: auto;
+    max-width: 300px;
+    max-height: 260px;
+}
+.tomtat-flex{
+    display: flex;
+    flex-direction: column;
+}
+/*responsive (thay đổi nhỏ hơn 900px thì thành dạng cột)*/
+@media(max-width:900px){
+    .row{
+        flex-direction: column;
+    }
+    .tomtat-flex{
+        flex-direction: row;
+    }
+}
+figure {
+    position: relative;
+  }
+   
+  figure:before,
+  figure:after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+  }
+   
+  img {
+    width: 100%;
+    height: 10%;
+    margin: 0;
+    padding: 0;
+  }
+  li#menu-item-8993, li#menu-item-8994
+  {
+    background-image: linear-gradient(#f5e4a3 , #ffa713 , #ed9721);
+    padding: 5px 6px;
+    box-shadow: 0 0 5px 0 #484848;
+    border-radius: 5px;
+    
+  }
+
+  .mn
+  {
+  width:7%;
+  height: 7%;
+  }
+  .bv
+  {
+      width: 20%;
+      height: 50%;
+  }
+.ngan
+{
+background-color:  #FFDFC7;;
+}
+.kl
+{
+    background-color: greenyellow;
+    width: 10%;
+    height: 100%;
+}
+.si{
+    font-size: 1.3em;
+   top: 500%;
+
+}
+.mi{
+    font-size: 2.1em;
+}
+.so 
+{
+    text-align: center;
+   width: 30%;
+   height: 100%;
+
+}
+.qp
+{
+    color: rgb(0, 0, 0);
+}
+.qnt{
+    width: 100%;
+    height: auto;
+    max-width: 400px;
+    max-height: 260px;
+}
+.lo{
+   
+   width: 1500%;
+   height: 1500%;
+} 
+.ngann{
+
+    background: white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.ngann tr{
+   
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+   
+}
+.ngann p{
+    
+    padding: 50px 30px;
+    display: inline-block;
+    color: rgb(0, 0, 0);
+}
+.gaa{
+    width: 20%;
+    height: 20%;
+}
+.noidung
+{
+	width: 1170px;
+	margin: auto;
+	display: flex;	
+}
+.op{
+font-size: 2.2em;
+   font-style: italic ;
+   color: rgb(124, 56, 233);
+}
